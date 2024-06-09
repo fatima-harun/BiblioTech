@@ -42,12 +42,12 @@
 <body>
 
 <div class="sidebar">
-    <a href=""><h2>BiblioTech</h2></a>
-    <a href="#"><box-icon name='home-smile' type='solid' color='#ffffff'></box-icon>Espace personnel</a>
-    <a href="#"><box-icon name='book' type='solid' color='#ffffff'></box-icon>Livres</a>
-    <a href="#"><box-icon name='library' color='#ffffff'></box-icon>Catégories</a>
+<a href=""><h2>BiblioTech</h2></a>
+    <a href="/index"><box-icon name='home-smile' type='solid' color='#ffffff'></box-icon>Espace personnel</a>
+    <a href="/index"><box-icon name='book' type='solid' color='#ffffff'></box-icon>Livres</a>
+    <a href="/listecategorie"><box-icon name='library' color='#ffffff'></box-icon>Catégories</a>
     <a href="#"><box-icon name='folder-open' color='#ffffff'></box-icon>Rayon</a>
-    <a href="#"><box-icon name='book-add' color='#ffffff'></box-icon>Ajouter un livre</a>
+    <a href="{{route('ajout')}}"><box-icon name='book-add' color='#ffffff'></box-icon>Ajouter un livre</a>
     <a href="#"><box-icon name='log-out-circle' color='#ffffff'></box-icon>Déconnexion</a>
 </div>
 
@@ -97,7 +97,13 @@
                 <input type="text" class="form-control" id="image" placeholder="Entrer l'url de l'image" name="url" value="{{ old('url') }}">
             </div>
         </div>
-        
+        <div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" placeholder="Entrer le résumé du livre" name="description">{{ old('description') }}</textarea>
+    </div>
+</div>
+
         <button type="submit" class="btn btn-primary">Ajouter le Livre</button>
     </form>
 </div>

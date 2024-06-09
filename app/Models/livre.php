@@ -17,6 +17,6 @@ class Livre extends Model
             'publication',
             'isbn',
             'page',
-
+            'description'
     ];
 }

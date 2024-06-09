@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Vertical Dashboard</title>
+    <title>Ajouter une Catégorie</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-        
         }
-        
         .sidebar {
             position: fixed;
             top: 0;
@@ -20,7 +18,6 @@
             width: 250px;
             background-color: #e84118;
             padding-top: 60px;
-            /* overflow-x: hidden; */
         }
         .sidebar a {
             padding: 10px 15px;
@@ -28,37 +25,13 @@
             font-size: 18px;
             color: #fff;
             display: block;
-            margin-top:20px
+            margin-top: 20px;
         }
-        box-icon{
-            margin-right:12px;
-          
-            height:auto;
-            width:20px
+        box-icon {
+            margin-right: 12px;
+            height: auto;
+            width: 20px;
         }
-        .form-control{
-            border-radius:20px;
-            padding-right:600PX
-        }
-        .card-item{
-            border-style:solid;
-            border-width:thin;
-            background-color:#a4b0be;
-            color:#ffffff;
-            padding-left:10px;
-            padding-top:5px
-        }
-       
-       .livre{
-        display:flex;
-        margin-left:40px;
-        margin-top:30px;
-        gap:20px
-    }
-    .image-top{
-        width: 220px;
-        height:320px
-    }
         .content {
             margin-left: 250px;
             padding: 20px;
@@ -66,11 +39,8 @@
     </style>
 </head>
 <body>
-
-
-
 <div class="sidebar">
-<a href=""><h2>BiblioTech</h2></a>
+    <a href=""><h2>BiblioTech</h2></a>
     <a href="/index"><box-icon name='home-smile' type='solid' color='#ffffff'></box-icon>Espace personnel</a>
     <a href="/index"><box-icon name='book' type='solid' color='#ffffff'></box-icon>Livres</a>
     <a href="/listecategorie"><box-icon name='library' color='#ffffff'></box-icon>Catégories</a>
@@ -80,27 +50,21 @@
 </div>
 
 <div class="content">
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="rechercher" aria-label="Search" >
-      
-    </form>
-  </div>
-</nav>
-<h2>Liste des livres</h2>
-<div class="livre">
-    @foreach($livres as $livre)
-    <div >
-        <img src="{{$livre->url}}" alt="" class="image-top">
-        <div class="card-item">
-            <h6>{{$livre->titre}}</h6>
-            <h6>{{$livre->auteur}}</h6>
+    <h2 class="mt-4 mb-4">Modifier une Catégorie</h2>
+    <form action="{{ route('modification') }}" method="POST">
+        @csrf
+        <input type="hidden" class="form-control" name="id" id="image" value="{{ $categorie->id }}">
+        <div class="form-group">
+            <label for="libelle">Libellé</label>
+            <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Entrez le libellé de la catégorie" required value="{{ $categorie->libelle }}">
         </div>
-    </div>
-    @endforeach
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Entrez la description du livre" required>{{ $categorie->description }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter la Catégorie</button>
+    </form>
 </div>
-  
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

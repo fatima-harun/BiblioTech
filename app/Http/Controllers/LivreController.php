@@ -28,6 +28,7 @@ class LivreController extends Controller
             'publication' => 'required',
             'isbn' => 'required',
             'page' => 'required',
+            'description' => 'required',
 
         ]);
         Livre::create($request->all());
