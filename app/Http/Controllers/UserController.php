@@ -17,6 +17,27 @@ class UserController extends Controller
     }
     // fonction pour traiter les donnes de l'utilisateur
     public function store(Request $request){
+        $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'adresse' => 'required',
+            'email' => 'required|email|unique:personnels,email',
+            'mot_de_passe' => 'required|min:8',
+            'telephone' => 'required|digits:9',
+        ], [
+            'nom.required' => 'Veuillez entrer votre nom.',
+            'prenom.required' => 'Veuillez entrer votre prénom.',
+            'email.required' => 'Veuillez entrer votre adresse email.',
+            'email.email' => 'Veuillez entrer une adresse email valide.',
+            'email.unique' => 'Cette adresse email est déjà utilisée.',
+            'mot_de_passe.required' => 'Veuillez entrer votre mot de passe.',
+            'mot_de_passe.min' => 'Votre mot de passe doit comporter au moins 4 caractères.',
+            'telephone.required' => 'Veuillez entrer votre numéro de téléphone.',
+            'telephone.digits' => 'Le numéro de téléphone doit comporter exactement 9 chiffres.',
+        ]);
+
+
+
         $user=new user();
         $user->nom=$request->nom;
         $user->prenom=$request->prenom;
@@ -25,6 +46,7 @@ class UserController extends Controller
         $user->telephone=$request->telephone;
         $user->password=bcrypt($request->password);
         $user->save();
+        return view ('authentification.connexion');
     }
 
 
@@ -35,6 +57,17 @@ class UserController extends Controller
     }
   
     public function authentifier(Request $request){
+
+         // Valider les données de la requête
+         $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ], [
+            'email.required' => 'Veuillez entrer votre adresse email.',
+            'email.email' => 'Veuillez entrer une adresse email valide.',
+            'password.required' => 'Veuillez entrer votre mot de passe.',
+        ]);
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect('/index');

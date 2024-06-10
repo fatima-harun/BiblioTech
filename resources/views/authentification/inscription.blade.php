@@ -22,32 +22,50 @@
 
                         <div class="form-group">
                             <label for="nom">Nom</label>
-                            <input type="text" class="form-control" id="nom" name="nom" required>
+                            <input type="text" class="form-control" id="nom" name="nom" >
+                            @error('nom')
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="prenom">Prénom</label>
-                            <input type="text" class="form-control" id="prenom" name="prenom" required>
+                            <input type="text" class="form-control" id="prenom" name="prenom" >
+                            @error('prenom')
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="adresse">Adresse</label>
-                            <input type="text" class="form-control" id="adresse" name="adresse" required>
+                            <input type="text" class="form-control" id="adresse" name="adresse" >
+                            @error('adresse')
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" >
+                            @error('email')
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="telephone">Téléphone</label>
-                            <input type="tel" class="form-control" id="telephone" name="telephone" required>
+                            <input type="tel" class="form-control" id="telephone" name="telephone" >
+                            @error('telephone')
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="password">Mot de passe</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
+                            <input type="password" class="form-control" id="password" name="password">
+                            @error('password')
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">S'inscrire</button>

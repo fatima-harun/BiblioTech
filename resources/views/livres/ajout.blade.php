@@ -51,7 +51,6 @@
     <a href="/listecategorie"><box-icon name='library' color='#ffffff'></box-icon>Catégories</a>
     <a href="/listerayon"><box-icon name='folder-open' color='#ffffff'></box-icon>Rayon</a>
     <a href="{{route('ajout')}}"><box-icon name='book-add' color='#ffffff'></box-icon>Ajouter un livre</a>
-    <a href="#"><box-icon name='log-out-circle' color='#ffffff'></box-icon>Déconnexion</a>
 </div>
 
 <div class="content">

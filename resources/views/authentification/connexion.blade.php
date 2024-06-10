@@ -21,7 +21,7 @@
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" >
                             @error('email')
                         {{ $message }}
                          @enderror
@@ -29,8 +29,8 @@
 
                         <div class="form-group">
                             <label for="password">Mot de passe</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                            @error('email')
+                            <input type="password" class="form-control" id="password" name="password">
+                            @error('password')
                         {{ $message }}
                          @enderror
                         </div>
