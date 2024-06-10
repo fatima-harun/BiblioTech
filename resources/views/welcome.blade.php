@@ -36,6 +36,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Se connecter</button>
+                        <p>Vous n'avez pas de compte ? <a href="/creer">Inscrivez-vous</a></p>
                     </form>
                 </div>
             </div>
