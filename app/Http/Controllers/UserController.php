@@ -17,20 +17,6 @@ class UserController extends Controller
     }
     // fonction pour traiter les donnes de l'utilisateur
     public function store(Request $request){
- 
-        dd(Auth::user());
-        /* 
-        Validation
-        */
-        $request->validate([
-            'nom' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
-            'telephone' => 'required',
-            'adresse' => 'required',
-            'prenom' => 'required',
-        ]);
-
         $user=new user();
         $user->nom=$request->nom;
         $user->prenom=$request->prenom;
@@ -39,8 +25,6 @@ class UserController extends Controller
         $user->telephone=$request->telephone;
         $user->password=bcrypt($request->password);
         $user->save();
-
-        Auth::login($user);
     }
 
 
@@ -51,18 +35,24 @@ class UserController extends Controller
     }
   
     public function authentifier(Request $request){
-        $credentials = [
-            'email'=>$request->email,
-            'password'=>$request->password,
-        ];
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect('/index');
+        }
+        return redirect('/creer')->withErrors('Identifiant ou mot de pass incorrect');
 
-        dd(Auth::attempt($credentials));
+        // $user=new user();
+        // $user->nom=$request->nom;
+        // $user->prenom=$request->prenom;
+        // $user->email=$request->email;
+        // $user->adresse=$request->adresse;
+        // $user->telephone=$request->telephone;
+        // $user->password=bcrypt($request->password);
+        // $user->save();
+        // $credentials=$request->validated();
+        // if(Auth::attempt($credentials)){
+        //     $request->session()->regenerate();
         //     return view('welcome');
         // }
-        // return ('error');
-
-        
-    // }
-
-}
+    }
 }

@@ -18,6 +18,7 @@
                 <div class="card-body">
                     <form action="{{route('enregistrement')}}" method="POST">
                         @csrf <!-- Utilisé dans Laravel pour protéger le formulaire contre les attaques CSRF -->
+                        @method('post')
 
                         <div class="form-group">
                             <label for="nom">Nom</label>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un Livre</title>
+    <title>Liste des rayons</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <style>
@@ -52,14 +52,14 @@
     <a href="/index"><box-icon name='home-smile' type='solid' color='#ffffff'></box-icon>Espace personnel</a>
     <a href="/index"><box-icon name='book' type='solid' color='#ffffff'></box-icon>Livres</a>
     <a href="/listecategorie"><box-icon name='library' color='#ffffff'></box-icon>Catégories</a>
-    <a href="#"><box-icon name='folder-open' color='#ffffff'></box-icon>Rayon</a>
+    <a href="/listerayon"><box-icon name='folder-open' color='#ffffff'></box-icon>Rayon</a>
     <a href="{{route('ajout')}}"><box-icon name='book-add' color='#ffffff'></box-icon>Ajouter un livre</a>
     <a href="#"><box-icon name='log-out-circle' color='#ffffff'></box-icon>Déconnexion</a>
 </div>
 
 <div class="content">
     <h2>Liste des rayons</h2>
-
+    <a href="/rayons"> <button class="btn-categorie">Ajouter un rayon</button></a>
     <table class="table">
   <thead>
     <tr>
@@ -92,7 +92,7 @@
     @endforeach
   </tbody>
     </table>
-    <a href="/rayons"> <button class="btn-categorie">Ajouter un rayon</button></a>
+
   
        
 </div>

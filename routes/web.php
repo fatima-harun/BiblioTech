@@ -14,6 +14,10 @@ Route::get('/', function () {
 Route::get('/index', [LivreController::class, 'afficher'])->name('affichage');// route pour afficher les livres
 Route::get('/ajouter', [LivreController::class, 'ajout'])->name('ajout');// route pour acceder au formulaire d'ajout
 Route::post('/traiter', [LivreController::class, 'sauvegarder'])->name('traitement');// route pour traiter les données
+Route::get("/detailsLivre/{id}", [LivreController::class, 'detailsLivre']); // Afficher les détails d'un livre
+Route::post('/modifierlivre', [LivreController::class, 'modifier'])->name('modification');// route pour modifier le livre
+Route::get('/editerlivre/{id}', [LivreController::class, 'editelivre']);// route pour récupérer le livre à modifier
+Route::delete('/supprimerlivre/{id}', [LivreController::class, 'supprimer_livre']);//route pour supprimer un livre
 
 // route pour les catégories
 Route::get('/categories', [CategorieController::class, 'categoriser'])->name('categories');// route pour afficher le formulaire d'ajout
@@ -32,11 +36,8 @@ Route::post('/modifierrayon', [RayonController::class, 'modifier'])->name('modif
 Route::get('/editer/{id}', [RayonController::class, 'editerayon'])->name('rayonner');// route pour récupérer le rayon à modifier
 Route::delete('/supprimer/{id}', [RayonController::class, 'supprimer_rayon']);
 
-
-
-
-
-Route::get('/register', [UserController::class, 'creer'])->name('creation');
+//route pour l'authentification
+Route::get('/creer', [UserController::class, 'creer'])->name('creation');//route pour afficher le formulaire
 Route::post('/register', [UserController::class, 'store'])->name('enregistrement');
 Route::get('/login', [UserController::class, 'connecter'])->name('connexion');
-// Route::post('/log', [UserController::class, 'authentifier'])->name('authentification');
+Route::post('/log', [UserController::class, 'authentifier'])->name('authentification');

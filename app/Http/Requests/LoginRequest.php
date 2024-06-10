@@ -22,8 +22,16 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|unique:users,email',
-            'password' => 'required|min:8',
+            'name' => 'required|min:6',
+            'email' => "required|email|unique:users,email",
+            'password' => "required|min:8|max:20"
         ];
     }
-}
+    public function validated($key = null, $default = null)
+    {
+        return array_merge($this->validator->validated(), [
+            'password' => Hash::make(request('password'))
+        ]);
+    }
+    }
+

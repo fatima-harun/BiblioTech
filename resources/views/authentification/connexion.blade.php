@@ -16,23 +16,23 @@
                     <h4>Connexion</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('enregistrement') }}" method="POST">
-                        @csrf
+                    <form action="{{ route('authentification') }}" method="POST">
+                        @csrf <!-- Utilisé dans Laravel pour protéger le formulaire contre les attaques CSRF -->
 
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                             @error('email')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="password">Mot de passe</label>
                             <input type="password" class="form-control" id="password" name="password" required>
-                            @error('password')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                            @error('email')
+                        {{ $message }}
+                         @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">Se connecter</button>

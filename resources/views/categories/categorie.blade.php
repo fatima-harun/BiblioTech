@@ -74,7 +74,7 @@
     <a href="/index"><box-icon name='home-smile' type='solid' color='#ffffff'></box-icon>Espace personnel</a>
     <a href="/index"><box-icon name='book' type='solid' color='#ffffff'></box-icon>Livres</a>
     <a href="/listecategorie"><box-icon name='library' color='#ffffff'></box-icon>Catégories</a>
-    <a href="#"><box-icon name='folder-open' color='#ffffff'></box-icon>Rayon</a>
+    <a href="/listerayon"><box-icon name='folder-open' color='#ffffff'></box-icon>Rayon</a>
     <a href="{{route('ajout')}}"><box-icon name='book-add' color='#ffffff'></box-icon>Ajouter un livre</a>
     <a href="#"><box-icon name='log-out-circle' color='#ffffff'></box-icon>Déconnexion</a>
 </div>

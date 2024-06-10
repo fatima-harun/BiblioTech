@@ -16,7 +16,17 @@ class Livre extends Model
             'url',
             'publication',
             'isbn',
+            'categorie_id',
+            'rayon_id',
             'page',
             'description'
     ];
+    public function categorie()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
+    public function rayon()
+    {
+        return $this->belongsTo(Rayon::class);
+    }
 }

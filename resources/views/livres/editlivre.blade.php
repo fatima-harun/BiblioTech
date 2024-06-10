@@ -68,31 +68,32 @@
         </div>
     @endif
 
-    <form action="/traiter" method="POST">
+    <form action="/modifierlivre" method="POST">
         @csrf
         @method('post')
+        <input type="hidden" name="id" value="{{ $livre->id }}">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="titre" placeholder="Entrer le titre du livre" name="titre" value="{{ old('titre') }}">
+                <input type="text" class="form-control" id="titre" placeholder="Entrer le titre du livre" name="titre" value ="{{$livre->titre}}">
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="auteur" placeholder="Entrer le nom de l'auteur" name="auteur" value="{{ old('auteur') }}">
+                <input type="text" class="form-control" id="auteur" placeholder="Entrer le nom de l'auteur" name="auteur" value ="{{$livre->auteur}}">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="editeur" placeholder="Entrer le nom de l'éditeur" name="editeur" value="{{ old('editeur') }}">
+                <input type="text" class="form-control" id="editeur" placeholder="Entrer le nom de l'éditeur" name="editeur" value ="{{$livre->editeur}}">
             </div>
             <div class="form-group col-md-6">
-                <input type="date" class="form-control" id="publication" placeholder="Entrer la date de publication" name="publication" value="{{ old('publication') }}">
+                <input type="date" class="form-control" id="publication" placeholder="Entrer la date de publication" name="publication" value ="{{$livre->publication}}">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="isbn" placeholder="Entrer l'isbn" name="isbn" value="{{ old('isbn') }}">
+                <input type="text" class="form-control" id="isbn" placeholder="Entrer l'isbn" name="isbn" value ="{{$livre->isbn}}">
             </div>
             <div class="form-group col-md-6">
-                <input type="number" class="form-control" id="page" placeholder="Entrer le nombre de pages" name="page" value="{{ old('page') }}">
+                <input type="number" class="form-control" id="page" placeholder="Entrer le nombre de pages" name="page" value="{{$livre->page}}">
             </div>
         </div>
         <div class="form-row">
@@ -115,18 +116,17 @@
         </div>
         <div class="form-row">
         <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="image" placeholder="Entrer l'url de l'image" name="url" value="{{ old('url') }}">
+                <input type="text" class="form-control" id="image" placeholder="Entrer l'url de l'image" name="url" value="{{ $livre->url }}">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
-                <textarea class="form-control" id="description" placeholder="Entrer le résumé du livre" name="description">{{ old('description') }}</textarea>
+                <textarea class="form-control" id="description" placeholder="Entrer le résumé du livre" name="description">{{ $livre->description }}</textarea>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Ajouter le Livre</button>
     </form>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
