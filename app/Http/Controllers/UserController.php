@@ -39,20 +39,8 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect('/index');
         }
-        return redirect('/creer')->withErrors('Identifiant ou mot de pass incorrect');
+        return redirect('/creer');
 
-        // $user=new user();
-        // $user->nom=$request->nom;
-        // $user->prenom=$request->prenom;
-        // $user->email=$request->email;
-        // $user->adresse=$request->adresse;
-        // $user->telephone=$request->telephone;
-        // $user->password=bcrypt($request->password);
-        // $user->save();
-        // $credentials=$request->validated();
-        // if(Auth::attempt($credentials)){
-        //     $request->session()->regenerate();
-        //     return view('welcome');
-        // }
+        
     }
 }
